@@ -53,20 +53,23 @@ public class Personnage {
         return p;
     }
 
-   /* public void frappe(Personnage p, Monstre m){
+    public int frappe(Monstre m){
         this.p = p;
         this.m = m;
         boolean test=false;
+        int attaque=0;
         Dice d4=new Dice(4);
         if(this !=m){
             if(this.estTouché==true ){
                 for(int i=0;i<4;i++){
-                    d4.jeterDe();
+                    attaque=d4.jeterDe();
+                    System.out.println(attaque);
                 }
             }
         }
+        return attaque;
 
-    }*/
+    }
     @Override
     public String toString() {
         return "Personnage{" +

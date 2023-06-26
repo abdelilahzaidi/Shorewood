@@ -2,6 +2,7 @@ package Shorewood;
 
 import Shorewood.Personnage.Hero.Dwarf;
 import Shorewood.Personnage.Hero.Human;
+import Shorewood.Personnage.Monstre.Monstre;
 import Shorewood.Personnage.Personnage;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -47,11 +48,25 @@ public class Main {
 
         Personnage n1=new Dwarf(endurance2,force2);
 
+        Richesse or= new Richesse(Richesse.Material.OR,4,p1);
+        System.out.println("Or"+or);
+
+        Personnage m1=new Monstre(endurance2,force2,or);
+        System.out.println("Attaque !!!");
+
+        System.out.println(h1.frappe((Monstre) m1));
+
         //System.out.println("Personnage 2"+p2);
         System.out.println("******************************");
         System.out.println("Humain "+h1);
         System.out.println("******************************");
         System.out.println("9azam "+n1);
+        System.out.println("******************************");
+        System.out.println("7ayawane "+m1);
+
+
+
+
     }
 
 
