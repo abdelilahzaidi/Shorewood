@@ -54,7 +54,7 @@ public class Personnage {
     }
 
     public int frappe(Monstre m){
-        this.p = p;
+        /*this.p = p;
         this.m = m;
         boolean test=false;
         int attaque=0;
@@ -67,7 +67,15 @@ public class Personnage {
                 }
             }
         }
-        return attaque;
+        return attaque;*/
+        /*ystem.out.println(nom + " attaque le monstre !");
+
+        // Calcul des dégâts infligés au monstre
+        int degats = pointsDAttaque;
+
+        // Réduire les points de vie du monstre en fonction des dégâts
+        m.recevoirDegats(degats);*/
+
 
     }
     @Override
