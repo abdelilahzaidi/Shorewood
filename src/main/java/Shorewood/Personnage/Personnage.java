@@ -1,6 +1,7 @@
 package Shorewood.Personnage;
 
 import Shorewood.Dice;
+import Shorewood.Personnage.Monstre.Monstre;
 
 public class Personnage {
     private int endurance;
@@ -11,11 +12,13 @@ public class Personnage {
     private boolean isAdversaire;
 
     private Personnage advesaire;
+    private Personnage p;
+    private Monstre m;
 
     public Personnage(int endurance, int force) {
         this.endurance=endurance;
         this.force=force;
-        this.pointDeVie=endurance+modificateur(endurance);;
+        this.pointDeVie=endurance+modificateur(endurance);
     }
     public int getEndurance() {
         return endurance;
@@ -49,11 +52,13 @@ public class Personnage {
             p=null;
         return p;
     }
-   /*
-    public void frappe(Personnage p){
+
+   /* public void frappe(Personnage p, Monstre m){
+        this.p = p;
+        this.m = m;
         boolean test=false;
         Dice d4=new Dice(4);
-        if(this !=p){
+        if(this !=m){
             if(this.estTouché==true ){
                 for(int i=0;i<4;i++){
                     d4.jeterDe();

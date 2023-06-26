@@ -1,15 +1,17 @@
 package Shorewood;
 
-public class Stock {
+public class Richesse {
+    private int quantity;
+    private int stock;
+
+    public Richesse(int quantity, int stock) {
+        this.quantity = quantity;
+        this.stock = stock;
+    }
     public enum StockType{
         cuir,
         or,
     }
-    private int quantity;
-    private int stock;
-
-    public Stock(int quantity, int stock) {
-        this.quantity = quantity;
-        this.stock = stock;
-    }
 }
+
+
