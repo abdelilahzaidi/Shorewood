@@ -17,7 +17,11 @@ public class Dice {
         this.nbFaces = nbFaces;
     }
 
-    public void jeterDe(){
+    public int getNbFaces() {
+        return nbFaces;
+    }
+
+    public int jeterDe(){
         for (int cpt = 0; cpt < 4; cpt++) {
             int num = rnd.nextInt(nbFaces) + 1;
             tabNb[cpt]=num;
@@ -35,7 +39,7 @@ public class Dice {
             s +=tabNb[i];
 
         }
-        System.out.println("La somme est : " + s);
+        return s;
 
     }
 
