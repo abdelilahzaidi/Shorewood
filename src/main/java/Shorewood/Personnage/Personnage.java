@@ -1,24 +1,27 @@
 package Shorewood.Personnage;
 
 import Shorewood.Dice;
+import Shorewood.Personnage.Hero.Hero;
 import Shorewood.Personnage.Monstre.Monstre;
+import Shorewood.Richesse;
+
+import java.security.SecureRandom;
+import java.util.Objects;
+import java.util.Random;
 
 public class Personnage {
     private int endurance;
     private int force;
     private int pointDeVie;
+    private Richesse richesse;
 
-    private boolean estTouché;
-    private boolean isAdversaire;
 
-    private Personnage advesaire;
-    private Personnage p;
-    private Monstre m;
 
-    public Personnage(int endurance, int force) {
+    public Personnage(int endurance, int force, Richesse richesse) {
         this.endurance=endurance;
         this.force=force;
         this.pointDeVie=endurance+modificateur(endurance);
+        this.richesse = richesse;
     }
     public int getEndurance() {
         return endurance;
@@ -46,47 +49,62 @@ public class Personnage {
       }
       return bonus;
     }
-    public Personnage diedPersonnage(int poinDeVie){
-        Personnage p=new Personnage(this.endurance,this.force);
-        if(poinDeVie <=0)
-            p=null;
-        return p;
-    }
+    public void frappe(Personnage p) {
+        int degat= recevoirDegats(p);
+        int pointsDeVie=p.getPointDeVie();
+        pointsDeVie -=degat;
+        p.setPointDeVie(pointsDeVie);
+        System.out.println("Degats "+degat+" "+pointsDeVie + " points de vie restants !");
 
-    public int frappe(Monstre m){
-        /*this.p = p;
-        this.m = m;
-        boolean test=false;
-        int attaque=0;
-        Dice d4=new Dice(4);
-        if(this !=m){
-            if(this.estTouché==true ){
-                for(int i=0;i<4;i++){
-                    attaque=d4.jeterDe();
-                    System.out.println(attaque);
-                }
-            }
+        if (pointsDeVie <= 0) {
+            System.out.println(" est vaincu !");
         }
-        return attaque;*/
-        /*ystem.out.println(nom + " attaque le monstre !");
+    }
+    private void setPointDeVie(int pointsDeVie) {
+        this.pointDeVie=pointsDeVie;
+    }
+    public int recevoirDegats(Personnage p) {
 
-        // Calcul des dégâts infligés au monstre
-        int degats = pointsDAttaque;
+        Dice d4 = new Dice(4);
+        int teste=0;
+        int degat=0;
 
-        // Réduire les points de vie du monstre en fonction des dégâts
-        m.recevoirDegats(degats);*/
-
-
+            int bonus=0;
+            if(this !=p){
+                if (getForce() < 5) {
+                    bonus = -1;
+                } else if (getForce() < 5 && getForce() < 10) {
+                    bonus = 0;
+                } else if (getForce() > 10 && getForce() < 15) {
+                    bonus = 1;
+                } else {
+                    bonus = 2;
+                }
+                teste=d4.jeterDe4();
+                degat=bonus +teste ;
+                System.out.println("D4 "+teste);
+                System.out.println("Force "+getForce());
+            }
+        return degat;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Personnage that = (Personnage) o;
+        return endurance == that.endurance && force == that.force && pointDeVie == that.pointDeVie  && Objects.equals(richesse, that.richesse);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(endurance, force, pointDeVie, richesse);
     }
     @Override
     public String toString() {
         return "Personnage{" +
                 "endurance=" + endurance +
                 ", force=" + force +
-                ", pointdeVie=" + pointDeVie +
-                ", estTouché=" + estTouché +
-                ", isAdversaire=" + isAdversaire +
-                ", advesaire=" + advesaire +
+                ", pointDeVie=" + pointDeVie +
+                ", richesse=" + richesse +
                 '}';
     }
 }

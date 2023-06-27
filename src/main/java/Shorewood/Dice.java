@@ -27,19 +27,16 @@ public class Dice {
             tabNb[cpt]=num;
         }
         Arrays.sort(tabNb);
-        System.out.println("Tableau trié\n");
-        System.out.println(tabNb);
-        for (int i=0;i<6;i++) {
-
-            System.out.println("Tableau trié : " + tabNb[i]);
-
-        }
         int s=0;
         for (int i=3;i<6;i++) {
             s +=tabNb[i];
-
         }
         return s;
+    }
+    public int jeterDe4(){
+
+            int num = rnd.nextInt(nbFaces) + 1;
+        return num;
 
     }
 

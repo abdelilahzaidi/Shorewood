@@ -5,7 +5,6 @@ import Shorewood.Personnage.Personnage;
 import java.util.Objects;
 
 public class Richesse {
-    private Personnage personnage;
     private Material material;
     private int quantity;
 
@@ -14,10 +13,10 @@ public class Richesse {
         CUIR
     }
 
-    public Richesse(Material material, int quantity,Personnage personnage) {
+    public Richesse(Material material, int quantity) {
         this.material = material;
         this.quantity = quantity;
-        this.personnage=personnage;
+
     }
 
     public Material getMaterial() {
@@ -54,7 +53,6 @@ public class Richesse {
         return "Richesse{" +
                 "material=" + material +
                 ", quantity=" + quantity +
-                ", personnage="+personnage+
                 '}';
     }
 }
