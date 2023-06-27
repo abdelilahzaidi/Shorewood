@@ -12,7 +12,7 @@ import java.util.Random;
 public class Personnage {
     private int endurance;
     private int force;
-    private int pointDeVie;
+    protected int pointDeVie;
     private Richesse richesse;
     private boolean alive=true;
 
@@ -57,7 +57,7 @@ public class Personnage {
         isAlive();
 
     }
-    private void setPointDeVie(int pointsDeVie) {
+    protected void setPointDeVie(int pointsDeVie) {
         this.pointDeVie=pointsDeVie;
     }
     public int recevoirDegats(Personnage p) {
@@ -94,10 +94,7 @@ public class Personnage {
         return alive;
     }
 
-     public void regenerate(){
-             setPointDeVie(endurance+modificateur(endurance));
 
-        }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

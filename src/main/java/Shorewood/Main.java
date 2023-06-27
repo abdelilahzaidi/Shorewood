@@ -3,6 +3,7 @@ package Shorewood;
 import Shorewood.Personnage.Hero.Dwarf;
 import Shorewood.Personnage.Hero.Hero;
 import Shorewood.Personnage.Hero.Human;
+import Shorewood.Personnage.Monstre.Loup;
 import Shorewood.Personnage.Monstre.Monstre;
 import Shorewood.Personnage.Personnage;
 
@@ -116,6 +117,9 @@ public class Main {
         System.out.println("Etat h1"+h1.isAlive());
         h1.regenerate();
         System.out.println(" h1 "+h1);
+
+        Monstre loup=new Loup(endurance1,force1,cuir);
+        System.out.println(((Loup) loup).depecer());
 
     }
 }

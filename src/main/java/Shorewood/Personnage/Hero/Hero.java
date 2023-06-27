@@ -9,9 +9,15 @@ import java.security.SecureRandom;
 import java.util.Random;
 
 public class Hero extends Personnage {
+    protected int pointDeVie;
     public Hero(int endurance, int force, Richesse richesse) {
         super(endurance, force, richesse);
         getPointDeVie();
+        setPointDeVie(pointDeVie);
+    }
+    public void regenerate(){
+        setPointDeVie(getEndurance() +modificateur(getEndurance()));
+
     }
 
     @Override
