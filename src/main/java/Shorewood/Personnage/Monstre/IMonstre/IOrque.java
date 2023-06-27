@@ -1,4 +1,8 @@
 package Shorewood.Personnage.Monstre.IMonstre;
 
-public interface IOrque {
+import Shorewood.Richesse;
+
+public interface IOrque extends ILoup {
+    Richesse setOr();
+    int setEndurance(int endurance);
 }

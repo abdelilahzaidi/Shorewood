@@ -1,4 +1,7 @@
 package Shorewood.Personnage.Monstre.IMonstre;
 
-public interface IDragonnet {
+import Shorewood.Richesse;
+
+public interface IDragonnet extends ILoup {
+    int setForce(int force);
 }

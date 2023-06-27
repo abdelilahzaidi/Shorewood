@@ -116,5 +116,6 @@ public class Main {
         System.out.println("Etat h1"+h1.isAlive());
         h1.regenerate();
         System.out.println(" h1 "+h1);
+
     }
 }
