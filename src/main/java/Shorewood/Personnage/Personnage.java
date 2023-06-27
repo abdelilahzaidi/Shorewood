@@ -94,12 +94,17 @@ public class Personnage {
         return alive;
     }
 
-    /* public void regenerate(Personnage p){
-            int pointDeVie=endurance+modificateur(endurance);
+     public void regenerate(){
+            /*int pointDeVie=endurance+modificateur(endurance);
             if(this ==p && getPointDeVie() ==0){
                p.setPointDeVie(pointDeVie);
-            }
-        }*/
+            }*/
+         if (isAlive()){
+             setPointDeVie(15);
+             System.out.println("p");
+         }
+
+        }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

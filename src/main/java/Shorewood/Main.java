@@ -112,7 +112,9 @@ public class Main {
         //System.out.println("9azam n1"+n1);
         System.out.println("******************************");
         System.out.println("7ayawane 71"+m1);
-
+        System.out.println(" h1 "+h1);
         System.out.println("Etat h1"+h1.isAlive());
+        h1.regenerate();
+        System.out.println(" h1 "+h1);
     }
 }
