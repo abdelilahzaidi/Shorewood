@@ -14,8 +14,7 @@ public class Personnage {
     private int force;
     private int pointDeVie;
     private Richesse richesse;
-
-
+    private boolean alive=true;
 
     public Personnage(int endurance, int force, Richesse richesse) {
         this.endurance=endurance;
@@ -55,10 +54,8 @@ public class Personnage {
         pointsDeVie -=degat;
         p.setPointDeVie(pointsDeVie);
         System.out.println("Degats "+degat+" "+pointsDeVie + " points de vie restants !");
+        isAlive();
 
-        if (pointsDeVie <= 0) {
-            System.out.println(" est vaincu !");
-        }
     }
     private void setPointDeVie(int pointsDeVie) {
         this.pointDeVie=pointsDeVie;
@@ -87,6 +84,22 @@ public class Personnage {
             }
         return degat;
     }
+
+    public boolean isAlive() {
+
+        if(getPointDeVie()<=0){
+            System.out.println(" est mort");
+            alive=false;
+        }
+        return alive;
+    }
+
+    /* public void regenerate(Personnage p){
+            int pointDeVie=endurance+modificateur(endurance);
+            if(this ==p && getPointDeVie() ==0){
+               p.setPointDeVie(pointDeVie);
+            }
+        }*/
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -108,3 +121,6 @@ public class Personnage {
                 '}';
     }
 }
+
+
+//Introduire une variable currentEnergie et une autre booleenne alive
