@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Personnage {
+
     private int endurance;
     private int force;
     protected int pointDeVie;
@@ -93,6 +94,53 @@ public class Personnage {
         }
         return alive;
     }
+
+    public char getRepresentation() {
+
+        String nom= this.getClass().getSimpleName();
+
+        if (nom.equals("Loup")) {
+            return 'L';
+        } else if (nom.equals("Orque")) {
+            return 'O';
+        } else if (nom.equals("Dragon")) {
+            return 'D';
+        }
+        else if(nom.equals("Human")){
+            return 'H';
+        }
+        else if(nom.equals("Dwarf")){
+            return 'N';
+        } else {
+            return '?';
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override
